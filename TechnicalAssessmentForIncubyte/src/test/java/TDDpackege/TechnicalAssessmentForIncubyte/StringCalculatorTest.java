@@ -13,5 +13,13 @@ public class StringCalculatorTest {
 		Assert.assertEquals(0, obj.add(""));
         
     }
+	@Test
+    public  void AddStringContainOnlyOneElement() {
+		
+		StringCalculator str = new StringCalculator();
+		
+		Assert.assertEquals(1, str.add("1"));
+        
+    }
 
 }
