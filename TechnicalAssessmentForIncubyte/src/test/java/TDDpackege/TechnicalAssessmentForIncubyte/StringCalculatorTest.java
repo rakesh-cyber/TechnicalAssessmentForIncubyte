@@ -29,5 +29,13 @@ public class StringCalculatorTest {
 		Assert.assertEquals(1+2, str.add("1,2"));
         
     }
+	@Test
+    public  void AddStringContainUnknownAmountOfNumbers() {
+		
+		StringCalculator str = new StringCalculator();
+		
+		Assert.assertEquals(1+2+6+7+8, str.add("1,2,6,7,8"));
+        
+    }
 
 }
