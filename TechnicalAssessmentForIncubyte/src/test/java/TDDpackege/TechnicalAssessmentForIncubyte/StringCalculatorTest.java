@@ -21,5 +21,13 @@ public class StringCalculatorTest {
 		Assert.assertEquals(1, str.add("1"));
         
     }
+	@Test
+    public  void AddStringContainTwoElement() {
+		
+		StringCalculator str = new StringCalculator();
+		
+		Assert.assertEquals(1+2, str.add("1,2"));
+        
+    }
 
 }
