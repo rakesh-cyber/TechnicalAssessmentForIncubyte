@@ -15,7 +15,7 @@ public class StringCalculator {
 			for(int i = 0; i < numbers.length(); i++) 
 			{ 
 				char ch = numbers.charAt(i); 
-				if (Character.isDigit(ch)) 
+				if (Character.isDigit(ch))  // only for number 
 					Totalsum += Integer.parseInt(String.valueOf(ch)); 
 
 			} 
