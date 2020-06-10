@@ -11,6 +11,9 @@ public class StringCalculator {
 			return Integer.parseInt(numbers);
 		}else if(numbers.length() >= 2 )
 		{
+			System.out.println("numbers is "+ numbers);
+			numbers = numbers.replaceAll("\\r\\n|\\r|\\n", ",");;
+			System.out.println("numbers is "+ numbers);
 			int Totalsum = 0; 
 			for(int i = 0; i < numbers.length(); i++) 
 			{ 
@@ -19,7 +22,7 @@ public class StringCalculator {
 					Totalsum += Integer.parseInt(String.valueOf(ch)); 
 
 			} 
-		
+			System.out.println(Totalsum);
 			 return Totalsum ; 
 		}
 		return -1;
