@@ -11,16 +11,16 @@ public class StringCalculator {
 			return Integer.parseInt(numbers);
 		}else if(numbers.length() >= 2 )
 		{
-			int sum = 0; 
+			int Totalsum = 0; 
 			for(int i = 0; i < numbers.length(); i++) 
 			{ 
 				char ch = numbers.charAt(i); 
 				if (Character.isDigit(ch)) 
-					sum += Integer.parseInt(String.valueOf(ch)); 
+					Totalsum += Integer.parseInt(String.valueOf(ch)); 
 
 			} 
 		
-			 return sum ; 
+			 return Totalsum ; 
 		}
 		return -1;
 		
