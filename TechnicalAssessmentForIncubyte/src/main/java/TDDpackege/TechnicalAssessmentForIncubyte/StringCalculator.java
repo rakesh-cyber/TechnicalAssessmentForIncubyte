@@ -46,7 +46,11 @@ private static int add(final String numbers, final String delimiter) {
 				        	int num = Integer.parseInt(number);
 				        	if(num<0)
 				        		negativeNumbers.add(num) ;
-				        	Totalsum += Integer.parseInt(number);
+				        	else if(num > 1000) // after refactoring for bigger than 1000
+				        	{
+				        		num = num % 1000 ; 
+				        	}
+				        	Totalsum += num;
 				        	
 				        }
 				    }
