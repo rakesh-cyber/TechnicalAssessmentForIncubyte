@@ -5,7 +5,7 @@ import org.junit.Test;
 import junit.framework.Assert;
 
 public class StringCalculatorTest {
-	/*
+	
 	@Test
     public  void addEmptyNumbers() {
 		
@@ -37,7 +37,7 @@ public class StringCalculatorTest {
 		
 		Assert.assertEquals(1+2+6+7+8, str.add("1,2,6,7,8"));
         
-    }*/
+    }
 	@Test
     public  void AddStringContainNewLine() {
 		
@@ -46,5 +46,11 @@ public class StringCalculatorTest {
 		Assert.assertEquals(1+2+3+4, str.add("1\n2,3,4"));
         
     }
+	
+	@Test
+	public  void AddStringContainDelimiters() {
+		StringCalculator str = new StringCalculator();
+	    Assert.assertEquals(3+6+15, str.add("//;n3;6;15"));
+	}
 
 }
