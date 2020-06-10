@@ -1,5 +1,8 @@
 package TDDpackege.TechnicalAssessmentForIncubyte;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringCalculator {
 
 private static int add(final String numbers, final String delimiter) {
@@ -35,14 +38,28 @@ private static int add(final String numbers, final String delimiter) {
 			    	System.out.println("numbers is "+ numbers);
 					numbers = numbers.replaceAll("\\r\\n|\\r|\\n", ",");;
 					System.out.println("numbers is "+ numbers);
+				//	 ArrayList<Integer> negativeNumbers = new ArrayList<>();
+					 List<Integer> negativeNumbers = new ArrayList<Integer>();
 					int Totalsum = 0; 
-					for(int i = 0; i < numbers.length(); i++) 
+		for(int i = 0; i < numbers.length(); i++) 
 					{ 
 						char ch = numbers.charAt(i); 
-						if (Character.isDigit(ch))  // only for number 
-							Totalsum += Integer.parseInt(String.valueOf(ch)); 
+						if (Character.isDigit(ch) ) { 
+							Integer tempNum = Integer.parseInt(String.valueOf(ch));
+							System.out.println(tempNum);
+							Totalsum += tempNum; 
+							 if(tempNum < 0 )
+							{
+								negativeNumbers.add(tempNum);
+							}
+						}
 
 					} 
+					System.out.println(negativeNumbers.toString());
+					if(negativeNumbers.size() > 0)
+					{
+						 throw new RuntimeException("Negatives not allowed: " + negativeNumbers.toString());
+					}
 					System.out.println(Totalsum);
 					 return Totalsum ; 
 			    }
