@@ -38,23 +38,18 @@ private static int add(final String numbers, final String delimiter) {
 			    	System.out.println("numbers is "+ numbers);
 					numbers = numbers.replaceAll("\\r\\n|\\r|\\n", ",");;
 					System.out.println("numbers is "+ numbers);
-				//	 ArrayList<Integer> negativeNumbers = new ArrayList<>();
+					  String[] numbersArray = numbers.split(",");
 					 List<Integer> negativeNumbers = new ArrayList<Integer>();
 					int Totalsum = 0; 
-		for(int i = 0; i < numbers.length(); i++) 
-					{ 
-						char ch = numbers.charAt(i); 
-						if (Character.isDigit(ch) ) { 
-							Integer tempNum = Integer.parseInt(String.valueOf(ch));
-							System.out.println(tempNum);
-							Totalsum += tempNum; 
-							 if(tempNum < 0 )
-							{
-								negativeNumbers.add(tempNum);
-							}
-						}
-
-					} 
+					for (String number : numbersArray) { // after refactoring for negative number 
+				        if (!number.trim().isEmpty()) {  
+				        	int num = Integer.parseInt(number);
+				        	if(num<0)
+				        		negativeNumbers.add(num) ;
+				        	Totalsum += Integer.parseInt(number);
+				        	
+				        }
+				    }
 					System.out.println(negativeNumbers.toString());
 					if(negativeNumbers.size() > 0)
 					{
