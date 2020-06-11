@@ -5,8 +5,8 @@ import org.junit.Test;
 import junit.framework.Assert;
 
 public class StringCalculatorTest {
-	
-	/*@Test
+	/*
+	@Test
     public  void addEmptyNumbers() {
 		
 		StringCalculator obj = new StringCalculator();
@@ -51,7 +51,7 @@ public class StringCalculatorTest {
 	public  void AddStringContainDelimiters() {
 		StringCalculator str = new StringCalculator();
 	    Assert.assertEquals(3+6+15, str.add("//;n3;6;15"));
-	}*/
+	}
 	@Test
 	public  void AddmethodContainNegativeNumberExceptionIsThrown() {
 	    RuntimeException exception = null;
@@ -62,6 +62,24 @@ public class StringCalculatorTest {
 	    }
 	  
 	    Assert.assertEquals("Negatives not allowed: [-6, -18]", exception.getMessage());
+	}
+	@Test
+	public  void AddmethodContainNumberBiggerThan1000() {
+	   
+		StringCalculator str = new StringCalculator();
+		
+		Assert.assertEquals(2, str.add("1001,1"));
+	  
+	 
+	}*/
+	@Test
+	public  void AddmethodContainAnyLengthOfDelimeter() {
+	   
+		StringCalculator str = new StringCalculator();
+		
+		Assert.assertEquals(1+2+3, str.add("//[***]\\n1***2***3"));
+	  
+	 
 	}
 
 }
