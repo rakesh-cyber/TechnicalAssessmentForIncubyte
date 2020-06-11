@@ -6,13 +6,16 @@ import java.util.List;
 public class StringCalculator {
 
 private static int add(final String numbers, final String delimiter) {
+	 
     int returnValue = 0;
+    System.out.println("delimiter" + delimiter);
     String[] numbersArray = numbers.split(delimiter);
     for (String number : numbersArray) {
         if (!number.trim().isEmpty()) {
             returnValue += Integer.parseInt(number.trim());
         }
     }
+    System.out.println("returnValue" + returnValue);
     return returnValue;
 	}
 	public static int add(String numbers)
@@ -26,15 +29,29 @@ private static int add(final String numbers, final String delimiter) {
 		{
 			 String delimiter = ",|n";
 			    String numbersWithoutDelimiter = numbers;
-			    if (numbers.startsWith("//")) {
-			        int delimiterIndex = numbers.indexOf("//") + 2;
-			        delimiter = numbers.substring(delimiterIndex, delimiterIndex + 1);
+			    if(numbers.startsWith("//[")){
+			    	int delimiterIndex = numbers.indexOf("//[") + 3;
+			    	 System.out.println("delimiterIndex" + delimiterIndex );
+			        delimiter = numbers.substring(delimiterIndex, delimiterIndex + 3);
+			        
 			        numbersWithoutDelimiter = numbers.substring(numbers.indexOf("n") + 1);
-			    
+			    System.out.println("delimiter" + delimiter );
+			    System.out.println("numbersWithoutDelimiter" + numbersWithoutDelimiter);
+			    return add(numbersWithoutDelimiter, delimiter); 
+			    	
+			    } else if (numbers.startsWith("//")) {
+			        int delimiterIndex = numbers.indexOf("//") + 2;
+			        System.out.println("delimiterIndex" + delimiterIndex );
+			        delimiter = numbers.substring(delimiterIndex, delimiterIndex + 1);
+			        
+			        numbersWithoutDelimiter = numbers.substring(numbers.indexOf("n") + 1);
+			    System.out.println("delimiter" + delimiter );
 			    System.out.println("numbersWithoutDelimiter" + numbersWithoutDelimiter);
 			    return add(numbersWithoutDelimiter, delimiter); 
 			    }
-			    else {
+			    
+			    else 
+			    {
 			    	System.out.println("numbers is "+ numbers);
 					numbers = numbers.replaceAll("\\r\\n|\\r|\\n", ",");;
 					System.out.println("numbers is "+ numbers);
